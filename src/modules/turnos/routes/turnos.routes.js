@@ -5,6 +5,7 @@ import { postCancelarTurno } from "../controllers/cancelarTurno.controller.js";
 import { postFinalizarTurno } from "../controllers/finalizarTurno.controller.js";
 import { postNoAsistioTurno } from "../controllers/noAsistioturno.controller.js";
 import { postCrearTurnoAdmin } from "../controllers/crearTurnoAdmin.controller.js"
+import { getTurnosOperativo } from "../controllers/listarTurnosOperativo.controller.js";
 
 import {
   postCrearTurnoCliente,
@@ -68,6 +69,9 @@ router.get("/mis-turnos", (req, res, next) => {
   return getMisTurnos(req, res, next);
 });
 
+
+// ...
+router.get("/", getTurnosOperativo);
 
 // ...
 router.post("/:id/no-asistio", postNoAsistioTurno);
