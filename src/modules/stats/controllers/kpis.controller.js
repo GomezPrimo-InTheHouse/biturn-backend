@@ -1,0 +1,20 @@
+import { validarKpisQuery } from "../validators/validarKpisQuery.js";
+import { obtenerKpis } from "../services/kpis.service.js";
+import { parsearErrorRPC } from "../../../lib/rpcErrorMapper.js";
+
+export async function getKpis(req, res, next) {
+  try {
+    const actorRol = req.user.rol_normalizado;
+
+    const params = validarKpisQuery(req.query, actorRol);
+
+    const data = await obtenerKpis(params);
+
+    return res.status(200).json({ ok: true, data });
+  } catch (err) {
+    if (err?.message || err?.details || err?.hint) {
+      return next(parsearErrorRPC(err));
+    }
+    return next(err);
+  }
+}

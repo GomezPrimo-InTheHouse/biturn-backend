@@ -7,6 +7,7 @@ import authRoutes from './modules/auth/routes/auth.routes.js';
 import turnosRoutes from './modules/turnos/routes/turnos.routes.js';
 import agendaRoutes from "./modules/agenda/routes/agenda.routes.js";
 import clientesRoutes from "./modules/clientes/routes/clientes.routes.js";
+import statsRoutes from "./modules/stats/routes/stats.routes.js";
 
 
 import errorMiddleware from './middlewares/error.middleware.js';
@@ -22,6 +23,8 @@ app.use('/auth', authRoutes);
 app.use("/turnos", turnosRoutes);
 app.use("/agenda", agendaRoutes);
 app.use("/clientes", clientesRoutes);
+
+app.use("/stats", statsRoutes);
 
 // healthcheck simple
 app.get('/health', (_, res) => {
