@@ -3,7 +3,7 @@ import authMiddleware from "../../../middlewares/auth.middleware.js";
 import { normalizarRolMiddleware } from "../../../middlewares/normalizar-rol.middleware.js";
 import { postCancelarTurno } from "../controllers/cancelarTurno.controller.js";
 import { postFinalizarTurno } from "../controllers/finalizarTurno.controller.js";
-import { postNoAsistioTurno } from "../controllers/noAsistioturno.controller.js";
+import { postNoAsistioTurno } from "../controllers/noAsistioTurno.controller.js";
 import { postCrearTurnoAdmin } from "../controllers/crearTurnoAdmin.controller.js"
 import { getTurnosOperativo } from "../controllers/listarTurnosOperativo.controller.js";
 
