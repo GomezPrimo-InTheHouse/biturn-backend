@@ -69,3 +69,22 @@ export async function actualizarUltimoLogin(usuarioId) {
 
   if (error) throw error;
 }
+
+export async function crearUsuarioCliente({ nombre, email, password_hash }) {
+  const { data, error } = await supabase
+    .from('usuarios')
+    .insert({
+      nombre,
+      email,
+      password_hash,
+      rol: 'cliente',
+      totp_habilitado: false,
+      totp_seed: null,
+      activo: true,
+    })
+    .select('id,nombre,email,rol,totp_habilitado,activo,creado_en')
+    .single();
+
+  if (error) throw error;
+  return data;
+}
